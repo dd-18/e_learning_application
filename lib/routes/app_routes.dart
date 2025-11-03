@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../views/splash/splash_screen.dart';
+
 class AppRoutes {
   //auth routes
   static const String splash = "/splash";
@@ -7,6 +9,8 @@ class AppRoutes {
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
       case splash:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
+
       default:
         return MaterialPageRoute(
           builder: (_) =>

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [],
+      providers: [BlocProvider<FontBloc>(create: (context) => FontBloc())],
       child: BlocBuilder<FontBloc, FontState>(
         builder: (context, fontState) {
           return GetMaterialApp(
