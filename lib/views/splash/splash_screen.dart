@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen>
     if (StorageService.isFirstTime()) {
       Get.offNamed(AppRoutes.onBoarding);
     } else if (authState.userModel != null) {
-      Get.offNamed(AppRoutes.home);
+      Get.offNamed(AppRoutes.main);
     } else {
       Get.offNamed(AppRoutes.login);
     }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatefulWidget {
   final String label;
-  final String hint;
+  final String? hint;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final bool obscureText;
@@ -17,7 +17,7 @@ class CustomTextfield extends StatefulWidget {
   const CustomTextfield({
     super.key,
     required this.label,
-    required this.hint,
+    this.hint,
     this.prefixIcon,
     this.suffixIcon,
     this.obscureText = false,
@@ -54,6 +54,44 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       maxLines: widget.maxLines,
       enabled: widget.enabled,
       focusNode: widget.focusNode,
+      decoration: InputDecoration(
+        labelText: widget.label,
+        hintText: widget.hint,
+        prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+        suffixIcon: widget.obscureText
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+                icon: Icon(
+                  _obscureText
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined,
+                ),
+              )
+            : widget.suffixIcon != null
+            ? Icon(widget.suffixIcon)
+            : null,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.grey.shade300),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Theme.of(context).primaryColor),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.red),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.red),
+        ),
+      ),
     );
   }
 }

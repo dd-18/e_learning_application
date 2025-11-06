@@ -1,4 +1,8 @@
+import 'package:e_learning_application/core/utils/validators.dart';
 import 'package:e_learning_application/models/user_model.dart';
+import 'package:e_learning_application/routes/app_routes.dart';
+import 'package:e_learning_application/views/widgets/common/custom_button.dart';
+import 'package:e_learning_application/views/widgets/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -89,7 +93,96 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   const SizedBox(height: 20),
                   Form(
                     key: _formKey,
-                    child: Column(children: []),
+                    child: Column(
+                      children: [
+                        CustomTextfield(
+                          label: 'Full Name',
+                          prefixIcon: Icons.person_2_outlined,
+                          controller: _fullNameController,
+                          validator: FormValidator.validateFullName,
+                          hint: '',
+                        ),
+                        const SizedBox(height: 20),
+                        CustomTextfield(
+                          label: 'Email',
+                          prefixIcon: Icons.email_outlined,
+                          controller: _emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          validator: FormValidator.validateEmail,
+                          hint: '',
+                        ),
+                        const SizedBox(height: 20),
+                        CustomTextfield(
+                          label: 'Password',
+                          prefixIcon: Icons.lock_outline,
+                          controller: _passwordController,
+                          validator: FormValidator.validatePassword,
+                          obscureText: true,
+                          hint: '',
+                        ),
+                        const SizedBox(height: 20),
+                        CustomTextfield(
+                          label: 'Confirm Password',
+                          prefixIcon: Icons.password,
+                          controller: _confirmPasswordController,
+                          validator: (value) =>
+                              FormValidator.validateConfirmPassword(
+                                value,
+                                _passwordController.text,
+                              ),
+                          obscureText: true,
+                          hint: '',
+                        ),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  DropdownButtonFormField<UserRole>(
+                    decoration: InputDecoration(
+                      labelText: 'Role',
+                      prefixIcon: const Icon(Icons.person_outline),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Colors.grey.shade300,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                    value: _selectedRole,
+                    items: UserRole.values.map((role) {
+                      return DropdownMenuItem(
+                        value: role,
+                        child: Text(
+                          role.toString().split('.').last.capitalize!,
+                        ),
+                      );
+                    }).toList(),
+                    onChanged: (UserRole? value) {
+                      setState(() {
+                        _selectedRole = value;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  CustomButton(text: 'Register', onPressed: _handleRegister),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Already have an account?'),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -98,5 +191,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       ),
     );
+  }
+
+  void _handleRegister() {
+    if (_formKey.currentState!.validate() && _selectedRole != null) {
+      if (_selectedRole == UserRole.teacher) {
+        Get.offAllNamed(AppRoutes.teacherHome);
+      } else {
+        Get.offAllNamed(AppRoutes.main);
+      }
+    } else if (_selectedRole == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.red,
+          content: Text('Please fill in all fields and select a role.'),
+        ),
+      );
+    }
   }
 }

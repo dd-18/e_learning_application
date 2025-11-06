@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../routes/app_routes.dart';
+import '../../services/storage_service.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -39,6 +40,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     ),
   ];
 
+  void _completeOnboarding() async {
+    await StorageService.setFirstTime(false);
+    Get.offAllNamed(AppRoutes.login);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +67,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             top: 50,
             right: 20,
             child: TextButton(
-              onPressed: () => Get.offAllNamed(AppRoutes.login),
+              onPressed: _completeOnboarding,
               child: Text(
                 'Skip',
                 style: TextStyle(
@@ -92,7 +98,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_currentPage == _pages.length - 1) {
-                      Get.offAllNamed(AppRoutes.login);
+                      _completeOnboarding();
                     } else {
                       _pageController.nextPage(
                         duration: const Duration(milliseconds: 300),
