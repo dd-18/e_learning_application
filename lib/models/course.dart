@@ -39,6 +39,46 @@ class Course {
     this.isPremium = false,
   });
 
+  Course copyWith({
+    String? id,
+    String? title,
+    String? description,
+    String? imageUrl,
+    String? instructorId,
+    String? categoryId,
+    double? price,
+    List<Lesson>? lessons,
+    double? rating,
+    int? reviewCount,
+    int? enrollmentCount,
+    String? level,
+    List<String>? requirements,
+    List<String>? whatYouWillLearn,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    bool? isPremium,
+  }) {
+    return Course(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      imageUrl: imageUrl ?? this.imageUrl,
+      instructorId: instructorId ?? this.instructorId,
+      categoryId: categoryId ?? this.categoryId,
+      price: price ?? this.price,
+      lessons: lessons ?? this.lessons,
+      rating: rating ?? this.rating,
+      reviewCount: reviewCount ?? this.reviewCount,
+      enrollmentCount: enrollmentCount ?? this.enrollmentCount,
+      level: level ?? this.level,
+      requirements: requirements ?? this.requirements,
+      whatYouWillLearn: whatYouWillLearn ?? this.whatYouWillLearn,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      isPremium: isPremium ?? this.isPremium,
+    );
+  }
+
   factory Course.fromJson(Map<String, dynamic> json) => Course(
     id: json['id'],
     title: json['title'],
