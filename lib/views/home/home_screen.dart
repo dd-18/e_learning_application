@@ -2,6 +2,8 @@ import 'package:e_learning_application/models/category.dart';
 import 'package:e_learning_application/services/dummy_data_service.dart';
 import 'package:e_learning_application/views/home/widgets/category_section.dart';
 import 'package:e_learning_application/views/home/widgets/home_app_bar.dart';
+import 'package:e_learning_application/views/home/widgets/in_progress_section.dart';
+import 'package:e_learning_application/views/home/widgets/recommended_section.dart';
 import 'package:e_learning_application/views/home/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -44,12 +46,14 @@ class HomeScreen extends StatelessWidget {
       name: 'Language',
       icon: Icons.language,
       courseCount: DummyDataService.getCoursesByCategory('6').length,
-    ),Category(
+    ),
+    Category(
       id: '7',
       name: 'Health & Fitness',
       icon: Icons.fitness_center,
       courseCount: DummyDataService.getCoursesByCategory('7').length,
-    ),Category(
+    ),
+    Category(
       id: '8',
       name: 'Personal Development',
       icon: Icons.psychology,
@@ -71,9 +75,8 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 32),
               CategorySection(categories: categories),
               SizedBox(height: 32),
-              // InProgressSection(),
-              SizedBox(height: 32),
-              // CompletedSection(),
+              InProgressSection(),
+              RecommendedSection(),
             ]),
           ),
         ),
