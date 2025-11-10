@@ -1,5 +1,6 @@
 import 'package:e_learning_application/routes/app_routes.dart';
 import 'package:e_learning_application/views/auth/login_screen.dart';
+import 'package:e_learning_application/views/course/course_detail/course_detail_screen.dart';
 import 'package:e_learning_application/views/home/home_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
 import 'package:e_learning_application/views/splash/splash_screen.dart';
@@ -35,6 +36,10 @@ class AppPages {
         categoryId: Get.arguments?['categoryId'] as String?,
         categoryName: Get.arguments?['categoryName'] as String?,
       ),
+    ),
+    GetPage(
+      name: AppRoutes.courseDetail,
+      page: () => CourseDetailScreen(courseId: Get.parameters['id'] ?? ''),
     ),
     GetPage(name: AppRoutes.quizList, page: () => QuizListScreen()),
     GetPage(name: AppRoutes.profile, page: () => ProfileScreen()),
