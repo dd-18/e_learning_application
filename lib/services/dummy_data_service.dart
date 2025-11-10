@@ -12,7 +12,8 @@ class DummyDataService {
       title: 'Flutter Development Bootcamp',
       description:
           'Master Flutter and Dart from scratch,Build real-world cross-platform apps.',
-      imageUrl: '',
+      imageUrl:
+          'https://imgs.search.brave.com/Ldv7-QdZgTozJQPsN3BUDj2Njufp8uIIn_5hzbHIr8M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9idWls/ZHdpdGhhbmdnYS5j/b20vc3RvcmFnZS9h/c3NldHMvaW1hZ2Vf/Y291cnNlX3NjcmVl/bnNob290cy9zWmtt/OTFHT0dER0E1Tkd0/N1VnRjRCRHJRQnV0/a1VEd0xqRVQ3Y0Yy/LndlYnA',
       instructorId: 'inst_1',
       categoryId: '1',
       price: 99.99,
@@ -41,7 +42,8 @@ class DummyDataService {
       title: 'UI/UX Design Masterclass',
       description:
           'Learn professional UI/UX design from scratch using Figma and Adobe XD.',
-      imageUrl: '',
+      imageUrl:
+          'https://imgs.search.brave.com/m001EGos6bLOhErEUGdmg8s0-l4gBv_7kljFZsiJnkg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NWMxYWUyMWZiMjE5/MTQ2NmRkNmNlNzIv/NjYxOGQyMzcwMDAz/ZGUzZTg3ZjE2NDll/X1VJJTIwRGVzaWdu/JTIwTWFzdGVyY2xh/c3MuanBn',
       instructorId: 'inst_2',
       categoryId: '2',
       price: 79.99,
@@ -71,7 +73,8 @@ class DummyDataService {
       title: 'Digital Marketing Essentials',
       description:
           'Master digital marketing techniques and strategies to boost your online presence.',
-      imageUrl: '',
+      imageUrl:
+          'https://imgs.search.brave.com/tpM4Ph85JmPpA-lubt57UNKOHE8C3Au1nXfs4Ssl0Xs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFmQTdGbUJNM0wu/anBn',
       instructorId: 'inst_3',
       categoryId: '3',
       price: 89.99,
@@ -100,7 +103,8 @@ class DummyDataService {
       title: 'Advanced Mobile App Architecture',
       description:
           'Learn advanced mobile app architecture principles and best practices.',
-      imageUrl: '',
+      imageUrl:
+          'https://imgs.search.brave.com/gbMWCKuBl9T_o7o8UWNwqu4J0rMc4s38OPLhJOSqqHI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9kaWdp/bW9ua3NvbHV0aW9u/cy5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjQvMDIvTW9i/aWxlLUFwcC1BcmNo/aXRlY3R1cmUtRGV0/YWlsZWQtR3VpZGUt/MS0xMDI0eDU3Ni53/ZWJw',
       instructorId: 'inst_4',
       categoryId: '1',
       price: 129.99,
@@ -130,7 +134,8 @@ class DummyDataService {
       title: 'Motion Design with After Effects',
       description:
           'Create stunning motion graphics and visual effects using After Effects.',
-      imageUrl: '',
+      imageUrl:
+          'https://imgs.search.brave.com/yhyejyZYNW4kOR6E8jahyTNj5G3RjIlT8MEDyl15iX0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/ZWR1Y2JhLmNvbS9h/Y2FkZW15L3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIwLzAzL01v/dGlvbi1HcmFwaGlj/cy1pbi1BZnRlci1F/ZmZlY3RzLmpwZw',
       instructorId: 'inst_5',
       categoryId: '2',
       price: 89.99,
@@ -160,7 +165,8 @@ class DummyDataService {
       title: 'Financial Management Fundamentals',
       description:
           'Master the basic of financial management and business economics.',
-      imageUrl: '',
+      imageUrl:
+          'https://imgs.search.brave.com/RpMtbpo6hS5KysxE31ICByorHTD9mXyzGrvyTZE0XUE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFnUGlDOCtKaUwu/anBn',
       instructorId: 'inst_6',
       categoryId: '3',
       price: 74.99,
@@ -189,7 +195,8 @@ class DummyDataService {
       title: 'Professional Photography Masterclass',
       description:
           'Learn professional photography techniques from composition to post-processing.',
-      imageUrl: '',
+      imageUrl:
+          'https://imgs.search.brave.com/bM-N8fl4guwU3n6s4w1u_cHcKXeVA-ARga4TTdncE2s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/cGhvdG9ncmFwaHlt/YXN0ZXJjbGFzcy5j/b20vaW1hZ2VzL3Bo/b3RvZ3JhcGh5bWFz/dGVyY2xhc3MtcHJv/ZHVjdC5qcGc',
       instructorId: 'inst_7',
       categoryId: '5',
       price: 84.99,
@@ -219,7 +226,8 @@ class DummyDataService {
       id: '8',
       title: 'English Business Communication',
       description: 'Master business English for professional success.',
-      imageUrl: '',
+      imageUrl:
+          'https://imgs.search.brave.com/N3zafaDcoGMG7-Yn7orbNwmPreb2SCqUCaQI3qYM9KE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4w/MS5hbGlzb24tc3Rh/dGljLm5ldC9jb3Vy/c2VzLzYwODEvYWxp/c29uX2NvdXJzZXdh/cmVfaW50cm9fNjA4/MS5qcGc',
       instructorId: 'inst_8',
       categoryId: '6',
       price: 69.99,
@@ -283,7 +291,7 @@ class DummyDataService {
         title: 'Introduction to Flutter',
         description:
             'This is a detailed description for Introduction to flutter',
-        videoUrl: '',
+        videoUrl: 'https://www.youtube.com/watch?v=1ukSR1GRtMU',
         duration: 30,
         resources: _createDummyResources(),
         isPreview: true,

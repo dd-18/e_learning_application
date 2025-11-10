@@ -29,7 +29,13 @@ class AppPages {
       ),
     ),
     GetPage(name: AppRoutes.home, page: () => HomeScreen()),
-    GetPage(name: AppRoutes.courseList, page: () => CourseListScreen()),
+    GetPage(
+      name: AppRoutes.courseList,
+      page: () => CourseListScreen(
+        categoryId: Get.arguments?['categoryId'] as String?,
+        categoryName: Get.arguments?['categoryName'] as String?,
+      ),
+    ),
     GetPage(name: AppRoutes.quizList, page: () => QuizListScreen()),
     GetPage(name: AppRoutes.profile, page: () => ProfileScreen()),
     GetPage(name: AppRoutes.teacherHome, page: () => TeacherHomeScreen()),
