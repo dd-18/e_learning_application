@@ -36,7 +36,7 @@ class CourseDetailAppBar extends StatelessWidget {
           children: [
             CachedNetworkImage(
               imageUrl: imageUrl,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
               placeholder: (context, url) => Shimmer.fromColors(
                 baseColor: AppColors.primary.withOpacity(0.1),
                 highlightColor: AppColors.accent,
