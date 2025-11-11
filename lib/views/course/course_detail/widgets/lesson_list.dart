@@ -3,6 +3,7 @@ import 'package:e_learning_application/services/dummy_data_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../routes/app_routes.dart';
 import 'lesson_tile.dart';
 
 class LessonList extends StatelessWidget {
@@ -56,7 +57,15 @@ class LessonList extends StatelessWidget {
                 colorText: Colors.white,
                 duration: Duration(seconds: 3),
               );
-            } else {}
+            } else {
+              final result = await Get.toNamed(
+                AppRoutes.lesson.replaceAll(':id', lesson.id),
+                parameters: {'courseId': courseId},
+              );
+              if (result == true) {
+                onLessonComplete?.call();
+              }
+            }
           },
         );
       },
