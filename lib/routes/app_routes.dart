@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import '../views/auth/forgot_password_screen.dart';
 import '../views/course/course_detail/course_detail_screen.dart';
 import '../views/course/course_list/course_list_screen.dart';
+import '../views/course/payment/payment_screen.dart';
 import '../views/profile/profile_screen.dart';
 import '../views/splash/splash_screen.dart';
 import '../views/teacher/teacher_home_screen.dart';
@@ -27,7 +28,8 @@ class AppRoutes {
 
   // course routes
   static const String courseList = "/courses";
-  static const String courseDetail = "/courses/:id";
+  static const String courseDetail = "/course/:id";
+  static const String payment = "/payment";
 
   // course routes
   static const String quizList = "/quizzes";
@@ -86,6 +88,15 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const QuizListScreen());
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+      case payment:
+        final args = setting.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (_) => PaymentScreen(
+            courseId: args['courseId'] ?? '',
+            courseName: args['courseName'] ?? '',
+            price: args['price'] ?? 0.0,
+          ),
+        );
 
       default:
         return MaterialPageRoute(

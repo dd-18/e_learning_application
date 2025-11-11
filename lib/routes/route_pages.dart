@@ -10,6 +10,7 @@ import '../main_screen.dart';
 import '../views/auth/forgot_password_screen.dart';
 import '../views/auth/register_screen.dart';
 import '../views/course/course_list/course_list_screen.dart';
+import '../views/course/payment/payment_screen.dart';
 import '../views/onboarding/onboarding_screen.dart';
 import '../views/profile/profile_screen.dart';
 import '../views/teacher/teacher_home_screen.dart';
@@ -38,10 +39,18 @@ class AppPages {
       ),
     ),
     GetPage(
-      name: AppRoutes.courseDetail,
+      name: '/course/:id',
       page: () => CourseDetailScreen(courseId: Get.parameters['id'] ?? ''),
     ),
     GetPage(name: AppRoutes.quizList, page: () => QuizListScreen()),
+    GetPage(
+      name: AppRoutes.payment,
+      page: () => PaymentScreen(
+        courseId: Get.arguments['courseId'] as String,
+        courseName: Get.arguments['courseName'] as String,
+        price: Get.arguments['price'] as double,
+      ),
+    ),
     GetPage(name: AppRoutes.profile, page: () => ProfileScreen()),
     GetPage(name: AppRoutes.teacherHome, page: () => TeacherHomeScreen()),
   ];
