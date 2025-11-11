@@ -1,6 +1,7 @@
 import 'package:e_learning_application/routes/app_routes.dart';
 import 'package:e_learning_application/views/auth/login_screen.dart';
 import 'package:e_learning_application/views/course/course_detail/course_detail_screen.dart';
+import 'package:e_learning_application/views/course/lesson_screen/lesson_screen.dart';
 import 'package:e_learning_application/views/home/home_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
 import 'package:e_learning_application/views/splash/splash_screen.dart';
@@ -43,6 +44,10 @@ class AppPages {
       page: () => CourseDetailScreen(courseId: Get.parameters['id'] ?? ''),
     ),
     GetPage(name: AppRoutes.quizList, page: () => QuizListScreen()),
+    GetPage(
+      name: AppRoutes.lesson,
+      page: () => LessonScreen(lessonId: Get.parameters['id'] ?? ''),
+    ),
     GetPage(
       name: AppRoutes.payment,
       page: () => PaymentScreen(

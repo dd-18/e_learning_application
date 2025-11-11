@@ -1,6 +1,7 @@
 import 'package:e_learning_application/main_screen.dart';
 import 'package:e_learning_application/views/auth/login_screen.dart';
 import 'package:e_learning_application/views/auth/register_screen.dart';
+import 'package:e_learning_application/views/course/lesson_screen/lesson_screen.dart';
 import 'package:e_learning_application/views/home/home_screen.dart';
 import 'package:e_learning_application/views/onboarding/onboarding_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
@@ -30,6 +31,7 @@ class AppRoutes {
   static const String courseList = "/courses";
   static const String courseDetail = "/course/:id";
   static const String payment = "/payment";
+  static const String lesson = "/lesson/:id";
 
   // course routes
   static const String quizList = "/quizzes";
@@ -86,6 +88,11 @@ class AppRoutes {
         );
       case quizList:
         return MaterialPageRoute(builder: (_) => const QuizListScreen());
+      case lesson:
+        final lessonId = setting.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => LessonScreen(lessonId: lessonId ?? ''),
+        );
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case payment:
