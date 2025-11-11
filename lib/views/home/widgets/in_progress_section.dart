@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_learning_application/core/theme/app_colors.dart';
 import 'package:e_learning_application/services/dummy_data_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
 class InProgressSection extends StatelessWidget {
@@ -73,7 +74,7 @@ class InProgressSection extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                               child: CachedNetworkImage(
                                 imageUrl: course.imageUrl,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.contain,
                                 placeholder: (context, url) =>
                                     Shimmer.fromColors(
                                       baseColor: AppColors.primary.withOpacity(
@@ -137,5 +138,10 @@ class InProgressSection extends StatelessWidget {
     BuildContext context,
     String courseId,
     int lastLesson,
-  ) {}
+  ) {
+    Get.toNamed(
+      '/course/$courseId',
+      parameters: {'id': courseId, 'lastLesson': lastLesson.toString()},
+    );
+  }
 }
