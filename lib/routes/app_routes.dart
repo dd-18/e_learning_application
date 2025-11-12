@@ -12,6 +12,7 @@ import '../views/auth/forgot_password_screen.dart';
 import '../views/course/course_detail/course_detail_screen.dart';
 import '../views/course/course_list/course_list_screen.dart';
 import '../views/course/payment/payment_screen.dart';
+import '../views/notifications/notification_screen.dart';
 import '../views/profile/profile_screen.dart';
 import '../views/splash/splash_screen.dart';
 import '../views/teacher/teacher_home_screen.dart';
@@ -37,9 +38,11 @@ class AppRoutes {
   // course routes
   static const String quizList = "/quizzes";
   static const String quizAttempt = "/quiz/:id";
+  static const String quizResult = "/quiz/result";
 
   // profile routes
   static const String profile = "/profile";
+  static const String notifications = "/notifications";
 
   // teacher
   static const String teacherHome = "/teacher-home";
@@ -102,6 +105,8 @@ class AppRoutes {
         );
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+      case notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationScreen());
       case payment:
         final args = setting.arguments as Map<String, dynamic>;
         return MaterialPageRoute(

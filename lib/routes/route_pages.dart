@@ -3,12 +3,16 @@ import 'package:e_learning_application/views/auth/login_screen.dart';
 import 'package:e_learning_application/views/course/course_detail/course_detail_screen.dart';
 import 'package:e_learning_application/views/course/lesson_screen/lesson_screen.dart';
 import 'package:e_learning_application/views/home/home_screen.dart';
+import 'package:e_learning_application/views/notifications/notification_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_attempt/quiz_attempt_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
+import 'package:e_learning_application/views/quiz/quiz_result/quiz_result_screen.dart';
 import 'package:e_learning_application/views/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
 import '../main_screen.dart';
+import '../models/quiz.dart';
+import '../models/quiz_attempt.dart';
 import '../views/auth/forgot_password_screen.dart';
 import '../views/auth/register_screen.dart';
 import '../views/course/course_list/course_list_screen.dart';
@@ -46,8 +50,15 @@ class AppPages {
     ),
     GetPage(name: AppRoutes.quizList, page: () => QuizListScreen()),
     GetPage(
-      name: 'quiz/:id',
+      name: '/quiz/:id',
       page: () => QuizAttemptScreen(quizId: Get.parameters['id'] ?? ''),
+    ),
+    GetPage(
+      name: '/quiz/:id',
+      page: () => QuizResultScreen(
+        attempt: Get.arguments['attempt'] as QuizAttempt,
+        quiz: Get.arguments['quiz'] as Quiz,
+      ),
     ),
     GetPage(
       name: AppRoutes.lesson,
@@ -62,6 +73,7 @@ class AppPages {
       ),
     ),
     GetPage(name: AppRoutes.profile, page: () => ProfileScreen()),
+    GetPage(name: AppRoutes.notifications, page: () => NotificationScreen()),
     GetPage(name: AppRoutes.teacherHome, page: () => TeacherHomeScreen()),
   ];
 }
