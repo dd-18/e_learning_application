@@ -5,6 +5,11 @@ import 'package:e_learning_application/models/quiz.dart';
 import 'package:e_learning_application/models/quiz_attempt.dart';
 import 'package:e_learning_application/services/dummy_data_service.dart';
 import 'package:e_learning_application/views/quiz/quiz_attempt/widgets/quiz_attempt_app_bar.dart';
+import 'package:e_learning_application/views/quiz/quiz_attempt/widgets/quiz_navigation_bar.dart';
+import 'package:e_learning_application/views/quiz/quiz_attempt/widgets/quiz_question_page.dart';
+import 'package:e_learning_application/views/quiz/quiz_attempt/widgets/quiz_submit_dialog.dart';
+import 'package:e_learning_application/views/quiz/quiz_result/quiz_result_screen.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class QuizAttemptScreen extends StatefulWidget {
@@ -35,12 +40,29 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
     _startTimer();
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    _timer?.cancel();
+    _pageController.removeListener(_onPageChanged);
+    _pageController.dispose();
+    super.dispose();
+  }
+
   void _onPageChanged() {
     if (_pageController.page != null) {
       setState(() {
         _currentPage = _pageController.page!.round();
       });
     }
+  }
+
+  void _navigateToPage(int page) {
+    _pageController.animateToPage(
+      page,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
   }
 
   void _startTimer() {
@@ -71,6 +93,8 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
       timeSpent: quiz.timeLimit * 60 - remainingSeconds,
     );
     DummyDataService.saveQuizAttempt(currentAttempt!);
+
+    Get.off(() => QuizResultScreen(attempt: currentAttempt!, quiz: quiz));
   }
 
   int calculateScore() {
@@ -83,6 +107,12 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
     return score;
   }
 
+  void _selectAnswer(String questionId, String optionId) {
+    setState(() {
+      selectedAnswers[questionId] = optionId;
+    });
+  }
+
   String get formattedTime {
     final minutes = (remainingSeconds / 60).floor();
     final seconds = remainingSeconds % 60;
@@ -92,14 +122,60 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Scaffold(
-      backgroundColor: AppColors.lightBackground,
-      appBar: QuizAttemptAppBar(
-        formattedTime: formattedTime,
-        onSubmit: () => _showSubmitDialog(context),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.lightBackground,
+        appBar: QuizAttemptAppBar(
+          formattedTime: formattedTime,
+          onSubmit: () => _showSubmitDialog(context),
+        ),
+        body: PageView.builder(
+          controller: _pageController,
+          physics: BouncingScrollPhysics(),
+          itemCount: quiz.questions.length,
+          itemBuilder: (context, iPage) => QuizQuestionPage(
+            questionNumber: iPage + 1,
+            totalQuestions: quiz.questions.length,
+            question: quiz.questions[iPage],
+            selectedOptionId: selectedAnswers[quiz.questions[iPage].id],
+            onOptionSelected: (optionId) =>
+                _selectAnswer(quiz.questions[iPage].id, optionId),
+          ),
+        ),
+        bottomNavigationBar: QuizNavigationBar(
+          theme: theme,
+          onPreviousPressed: _currentPage > 0
+              ? () => _navigateToPage(_currentPage - 1)
+              : null,
+          onNextPressed: _currentPage < quiz.questions.length - 1
+              ? () => _navigateToPage(_currentPage + 1)
+              : null,
+          isLastPage: _currentPage == quiz.questions.length - 1,
+        ),
       ),
     );
   }
 
-  Future<void> _showSubmitDialog(BuildContext context) async {}
+  Future<void> _showSubmitDialog(BuildContext context) async {
+    final score = calculateScore();
+    currentAttempt = QuizAttempt(
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
+      quizId: quiz.id,
+      userId: 'Current user id',
+      answers: selectedAnswers,
+      score: score,
+      startedAt: DateTime.now().subtract(
+        Duration(seconds: quiz.timeLimit * 60 - remainingSeconds),
+      ),
+      timeSpent: quiz.timeLimit * 60 - remainingSeconds,
+      completedAt: DateTime.now(),
+    );
+    DummyDataService.saveQuizAttempt(currentAttempt!);
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) =>
+          QuizSubmitDialog(attempt: currentAttempt!, quiz: quiz),
+    );
+  }
 }

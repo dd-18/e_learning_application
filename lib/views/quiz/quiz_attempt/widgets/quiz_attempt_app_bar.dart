@@ -1,3 +1,4 @@
+import 'package:e_learning_application/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class QuizAttemptAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -14,7 +15,53 @@ class QuizAttemptAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return AppBar();
+    return AppBar(
+      backgroundColor: AppColors.primary,
+      elevation: 0,
+      iconTheme: IconThemeData(color: AppColors.accent),
+      title: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: AppColors.accent.withOpacity(0.1),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.timer_outlined, color: AppColors.accent, size: 20),
+            SizedBox(width: 8),
+            Text(
+              formattedTime,
+              style: theme.textTheme.titleMedium?.copyWith(
+                color: AppColors.accent,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        Container(
+          margin: EdgeInsets.only(right: 8),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: AppColors.accent.withOpacity(0.1),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            onPressed: onSubmit,
+            child: Text(
+              'Submit',
+              style: theme.textTheme.labelLarge?.copyWith(
+                color: AppColors.accent,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
   @override
