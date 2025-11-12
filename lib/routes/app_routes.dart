@@ -4,6 +4,7 @@ import 'package:e_learning_application/views/auth/register_screen.dart';
 import 'package:e_learning_application/views/course/lesson_screen/lesson_screen.dart';
 import 'package:e_learning_application/views/home/home_screen.dart';
 import 'package:e_learning_application/views/onboarding/onboarding_screen.dart';
+import 'package:e_learning_application/views/quiz/quiz_attempt/quiz_attempt_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ class AppRoutes {
 
   // course routes
   static const String quizList = "/quizzes";
+  static const String quizAttempt = "/quiz/:id";
 
   // profile routes
   static const String profile = "/profile";
@@ -88,6 +90,11 @@ class AppRoutes {
         );
       case quizList:
         return MaterialPageRoute(builder: (_) => const QuizListScreen());
+      case quizAttempt:
+        final quizId = setting.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => QuizAttemptScreen(quizId: quizId ?? ''),
+        );
       case lesson:
         final lessonId = setting.arguments as String?;
         return MaterialPageRoute(

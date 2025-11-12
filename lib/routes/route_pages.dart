@@ -3,6 +3,7 @@ import 'package:e_learning_application/views/auth/login_screen.dart';
 import 'package:e_learning_application/views/course/course_detail/course_detail_screen.dart';
 import 'package:e_learning_application/views/course/lesson_screen/lesson_screen.dart';
 import 'package:e_learning_application/views/home/home_screen.dart';
+import 'package:e_learning_application/views/quiz/quiz_attempt/quiz_attempt_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
 import 'package:e_learning_application/views/splash/splash_screen.dart';
 import 'package:get/get.dart';
@@ -44,6 +45,10 @@ class AppPages {
       page: () => CourseDetailScreen(courseId: Get.parameters['id'] ?? ''),
     ),
     GetPage(name: AppRoutes.quizList, page: () => QuizListScreen()),
+    GetPage(
+      name: 'quiz/:id',
+      page: () => QuizAttemptScreen(quizId: Get.parameters['id'] ?? ''),
+    ),
     GetPage(
       name: AppRoutes.lesson,
       page: () => LessonScreen(lessonId: Get.parameters['id'] ?? ''),
