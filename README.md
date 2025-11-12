@@ -10,6 +10,7 @@ The application is designed with the user in mind, providing a smooth and intuit
 *   **Intuitive Navigation:** A clean and organized interface that makes it easy to find and enroll in courses.
 *   **Engaging UI:** The use of `smooth_page_indicator` for carousels and `shimmer` effects for loading content provides a modern and responsive feel.
 *   **Seamless Video Playback:** An integrated video player powered by `chewie` and `video_player` allows for uninterrupted learning.
+*   **Interactive Quizzes:** Test your knowledge with interactive quizzes at the end of modules to reinforce learning.
 *   **Offline Capabilities:** `get_storage` and `shared_preferences` are used to cache essential data, allowing for a better offline experience.
 
 ## Tech Stack
@@ -42,6 +43,10 @@ The application is designed with the user in mind, providing a smooth and intuit
 *   **Course Content:**
     *   **Detailed Course Pages:** Each course has a dedicated page with its curriculum, lesson list, description, and instructor information.
     *   **Engaging Video Lessons:** In-app video player with `chewie` provides a rich learning experience, including playback controls, full-screen mode, and progress tracking.
+*   **Interactive Quizzes:**
+    *   **Knowledge Reinforcement:** Quizzes are available at the end of course modules to help solidify understanding of the material.
+    *   **Timed Assessments:** Quizzes are timed to challenge users and simulate real-world test conditions.
+    *   **Instant Feedback:** Users can submit their answers and receive immediate feedback on their performance.
 *   **Performance & UX:**
     *   **Responsive UI:** A fluid and adaptive interface that works seamlessly across different screen sizes and orientations.
     *   **Optimized Loading:** `shimmer` effects provide visual feedback while content is loading, and `cached_network_image` reduces redundant data fetching and improves image loading times.
