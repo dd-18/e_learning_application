@@ -7,6 +7,7 @@ import 'package:e_learning_application/views/home/home_screen.dart';
 import 'package:e_learning_application/views/onboarding/onboarding_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_attempt/quiz_attempt_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
+import 'package:e_learning_application/views/teacher/create_course/create_course_screen.dart';
 import 'package:e_learning_application/views/teacher/my_course/my_course_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ import '../views/course/payment/payment_screen.dart';
 import '../views/notifications/notification_screen.dart';
 import '../views/profile/profile_screen.dart';
 import '../views/splash/splash_screen.dart';
-import '../views/teacher/teacher_home_screen.dart';
+import '../views/teacher/teacher_home/teacher_home_screen.dart';
 
 class AppRoutes {
   // main
@@ -50,6 +51,7 @@ class AppRoutes {
   static const String teacherHome = "/teacher/home";
   static const String myCourse = "/teacher/courses";
   static const String teacherChats = "/teacher/chats";
+  static const String createCourse = "/teacher/courses/create";
 
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
@@ -80,6 +82,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ChatListScreen());
       case myCourse:
         return MaterialPageRoute(builder: (_) => const MyCourseScreen());
+      case createCourse:
+        return MaterialPageRoute(builder: (_) => const CreateCourseScreen());
       case courseList:
         final args = setting.arguments as Map<String, dynamic>?;
         return MaterialPageRoute(
