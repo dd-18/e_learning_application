@@ -3,8 +3,8 @@ import 'package:e_learning_application/views/teacher/teacher_home/widgets/dashbo
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/utils/app_dialogs.dart';
-import '../../routes/app_routes.dart';
+import '../../../core/utils/app_dialogs.dart';
+import '../../../routes/app_routes.dart';
 
 class TeacherHomeScreen extends StatelessWidget {
   const TeacherHomeScreen({super.key});
@@ -58,7 +58,7 @@ class TeacherHomeScreen extends StatelessWidget {
                 DashboardCard(
                   title: 'Create Courses',
                   icon: Icons.add_circle,
-                  onTap: () {},
+                  onTap: () => Get.toNamed(AppRoutes.createCourse),
                 ),
                 DashboardCard(
                   title: 'Analytics',
