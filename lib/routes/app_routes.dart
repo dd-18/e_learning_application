@@ -6,6 +6,7 @@ import 'package:e_learning_application/views/home/home_screen.dart';
 import 'package:e_learning_application/views/onboarding/onboarding_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_attempt/quiz_attempt_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
+import 'package:e_learning_application/views/teacher/my_course/my_course_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../views/auth/forgot_password_screen.dart';
@@ -45,7 +46,8 @@ class AppRoutes {
   static const String notifications = "/notifications";
 
   // teacher
-  static const String teacherHome = "/teacher-home";
+  static const String teacherHome = "/teacher/home";
+  static const String myCourse = "/teacher/courses";
 
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
@@ -63,7 +65,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => MainScreen(
             initialIndex: setting.arguments is Map
-                ? (setting.arguments as Map<String, dynamic>)['inintialIndex']
+                ? (setting.arguments as Map<String, dynamic>)['initialIndex']
                       as int?
                 : null,
           ),
@@ -72,6 +74,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case teacherHome:
         return MaterialPageRoute(builder: (_) => const TeacherHomeScreen());
+      case myCourse:
+        return MaterialPageRoute(builder: (_) => const MyCourseScreen());
       case courseList:
         final args = setting.arguments as Map<String, dynamic>?;
         return MaterialPageRoute(

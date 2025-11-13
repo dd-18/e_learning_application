@@ -19,6 +19,7 @@ import '../views/course/course_list/course_list_screen.dart';
 import '../views/course/payment/payment_screen.dart';
 import '../views/onboarding/onboarding_screen.dart';
 import '../views/profile/profile_screen.dart';
+import '../views/teacher/my_course/my_course_screen.dart';
 import '../views/teacher/teacher_home_screen.dart';
 
 class AppPages {
@@ -75,5 +76,6 @@ class AppPages {
     GetPage(name: AppRoutes.profile, page: () => ProfileScreen()),
     GetPage(name: AppRoutes.notifications, page: () => NotificationScreen()),
     GetPage(name: AppRoutes.teacherHome, page: () => TeacherHomeScreen()),
+    GetPage(name: AppRoutes.myCourse, page: () => MyCourseScreen()),
   ];
 }
