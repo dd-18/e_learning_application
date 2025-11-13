@@ -18,6 +18,7 @@ import '../views/course/payment/payment_screen.dart';
 import '../views/notifications/notification_screen.dart';
 import '../views/profile/profile_screen.dart';
 import '../views/splash/splash_screen.dart';
+import '../views/teacher/teacher_analytics/teacher_analytics_screen.dart';
 import '../views/teacher/teacher_home/teacher_home_screen.dart';
 
 class AppRoutes {
@@ -52,6 +53,7 @@ class AppRoutes {
   static const String myCourse = "/teacher/courses";
   static const String teacherChats = "/teacher/chats";
   static const String createCourse = "/teacher/courses/create";
+  static const String teacherAnalytics = "/teacher/analytics";
 
   static Route<dynamic> onGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
@@ -84,6 +86,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const MyCourseScreen());
       case createCourse:
         return MaterialPageRoute(builder: (_) => const CreateCourseScreen());
+      case teacherAnalytics:
+        return MaterialPageRoute(
+          builder: (_) => const TeacherAnalyticsScreen(),
+        );
       case courseList:
         final args = setting.arguments as Map<String, dynamic>?;
         return MaterialPageRoute(

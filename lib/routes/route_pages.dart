@@ -9,6 +9,7 @@ import 'package:e_learning_application/views/quiz/quiz_attempt/quiz_attempt_scre
 import 'package:e_learning_application/views/quiz/quiz_list/quiz_list_screen.dart';
 import 'package:e_learning_application/views/quiz/quiz_result/quiz_result_screen.dart';
 import 'package:e_learning_application/views/splash/splash_screen.dart';
+import 'package:e_learning_application/views/teacher/teacher_analytics/teacher_analytics_screen.dart';
 import 'package:get/get.dart';
 
 import '../main_screen.dart';
@@ -80,6 +81,10 @@ class AppPages {
     GetPage(name: AppRoutes.teacherHome, page: () => TeacherHomeScreen()),
     GetPage(name: AppRoutes.myCourse, page: () => MyCourseScreen()),
     GetPage(name: AppRoutes.createCourse, page: () => CreateCourseScreen()),
+    GetPage(
+      name: AppRoutes.teacherAnalytics,
+      page: () => TeacherAnalyticsScreen(),
+    ),
     GetPage(name: AppRoutes.teacherChats, page: () => ChatListScreen()),
   ];
 }
