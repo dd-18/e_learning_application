@@ -1,6 +1,7 @@
 import 'package:e_learning_application/models/course.dart';
 import 'package:e_learning_application/routes/app_routes.dart';
 import 'package:e_learning_application/services/dummy_data_service.dart';
+import 'package:e_learning_application/views/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,9 +44,13 @@ class ActionButtons extends StatelessWidget {
             DummyDataService.isCourseUnlocked(course.id)) ...[
           const SizedBox(width: 16),
           IconButton(
-            onPressed: () {
-              //chat screen
-            },
+            onPressed: () => Get.to(
+              () => ChatScreen(
+                courseId: course.id,
+                instructorId: course.instructorId,
+                isTeacherView: false,
+              ),
+            ),
             icon: const Icon(Icons.chat),
           ),
         ],
