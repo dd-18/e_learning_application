@@ -2,6 +2,7 @@ import 'package:e_learning_application/main_screen.dart';
 import 'package:e_learning_application/views/auth/login_screen.dart';
 import 'package:e_learning_application/views/auth/register_screen.dart';
 import 'package:e_learning_application/views/chat/chat_list_screen.dart';
+import 'package:e_learning_application/views/course/analytics_dashboard/analytics_dashboard_screen.dart';
 import 'package:e_learning_application/views/course/lesson_screen/lesson_screen.dart';
 import 'package:e_learning_application/views/home/home_screen.dart';
 import 'package:e_learning_application/views/onboarding/onboarding_screen.dart';
@@ -38,6 +39,7 @@ class AppRoutes {
   static const String courseList = "/courses";
   static const String courseDetail = "/course/:id";
   static const String payment = "/payment";
+  static const String analytics = "/analytics";
   static const String lesson = "/lesson/:id";
 
   // course routes
@@ -129,6 +131,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case notifications:
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
+      case analytics:
+        return MaterialPageRoute(
+          builder: (_) => const AnalyticsDashboardScreen(),
+        );
       case payment:
         final args = setting.arguments as Map<String, dynamic>;
         return MaterialPageRoute(

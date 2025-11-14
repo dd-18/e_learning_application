@@ -1,6 +1,7 @@
 import 'package:e_learning_application/routes/app_routes.dart';
 import 'package:e_learning_application/views/auth/login_screen.dart';
 import 'package:e_learning_application/views/chat/chat_list_screen.dart';
+import 'package:e_learning_application/views/course/analytics_dashboard/analytics_dashboard_screen.dart';
 import 'package:e_learning_application/views/course/course_detail/course_detail_screen.dart';
 import 'package:e_learning_application/views/course/lesson_screen/lesson_screen.dart';
 import 'package:e_learning_application/views/home/home_screen.dart';
@@ -78,6 +79,7 @@ class AppPages {
       ),
     ),
     GetPage(name: AppRoutes.profile, page: () => ProfileScreen()),
+    GetPage(name: AppRoutes.analytics, page: () => AnalyticsDashboardScreen()),
     GetPage(name: AppRoutes.notifications, page: () => NotificationScreen()),
     GetPage(name: AppRoutes.teacherHome, page: () => TeacherHomeScreen()),
     GetPage(name: AppRoutes.myCourse, page: () => MyCourseScreen()),
