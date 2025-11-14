@@ -23,6 +23,7 @@ import '../views/onboarding/onboarding_screen.dart';
 import '../views/profile/profile_screen.dart';
 import '../views/teacher/create_course/create_course_screen.dart';
 import '../views/teacher/my_course/my_course_screen.dart';
+import '../views/teacher/student_progress/student_progress_screen.dart';
 import '../views/teacher/teacher_home/teacher_home_screen.dart';
 
 class AppPages {
@@ -84,6 +85,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.teacherAnalytics,
       page: () => TeacherAnalyticsScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.studentProgress,
+      page: () => StudentProgressScreen(),
     ),
     GetPage(name: AppRoutes.teacherChats, page: () => ChatListScreen()),
   ];
