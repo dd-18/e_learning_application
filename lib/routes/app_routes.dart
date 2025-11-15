@@ -132,9 +132,7 @@ class AppRoutes {
       case notifications:
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
       case analytics:
-        return MaterialPageRoute(
-          builder: (_) => const AnalyticsDashboardScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => AnalyticsDashboardScreen());
       case payment:
         final args = setting.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
