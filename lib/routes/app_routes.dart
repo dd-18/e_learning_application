@@ -20,6 +20,7 @@ import '../views/course/payment/payment_screen.dart';
 import '../views/notifications/notification_screen.dart';
 import '../views/profile/edit_profile_screen.dart';
 import '../views/profile/profile_screen.dart';
+import '../views/settings/setting_screen.dart';
 import '../views/splash/splash_screen.dart';
 import '../views/teacher/teacher_analytics/teacher_analytics_screen.dart';
 import '../views/teacher/teacher_home/teacher_home_screen.dart';
@@ -52,6 +53,7 @@ class AppRoutes {
   static const String profile = "/profile";
   static const String editProfile = "/profile/edit";
   static const String notifications = "/notifications";
+  static const String settings = "/settings";
 
   // teacher
   static const String teacherHome = "/teacher/home";
@@ -135,6 +137,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const EditProfileScreen());
       case notifications:
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
+      case settings:
+        return MaterialPageRoute(builder: (_) => const SettingScreen());
       case analytics:
         return MaterialPageRoute(builder: (_) => AnalyticsDashboardScreen());
       case payment:

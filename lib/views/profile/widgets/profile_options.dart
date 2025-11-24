@@ -28,7 +28,7 @@ class ProfileOptions extends StatelessWidget {
           title: 'Settings',
           subtitle: 'App preferences and more',
           icon: Icons.settings_outlined,
-          onPressed: () {},
+          onPressed: () => Get.toNamed(AppRoutes.settings),
         ),
         ProfileOptionCard(
           title: 'Help & Support',

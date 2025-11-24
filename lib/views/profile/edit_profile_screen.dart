@@ -1,6 +1,8 @@
 import 'package:e_learning_application/core/theme/app_colors.dart';
 import 'package:e_learning_application/views/profile/widgets/edit_profile_app_bar.dart';
 import 'package:e_learning_application/views/profile/widgets/profile_picture_bottom_sheet.dart';
+import 'package:e_learning_application/views/widgets/common/custom_button.dart';
+import 'package:e_learning_application/views/widgets/common/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -133,6 +135,66 @@ class EditProfileScreen extends StatelessWidget {
                       ],
                     ),
                     padding: const EdgeInsets.all(20),
+                    child: const Column(
+                      children: [
+                        CustomTextfield(
+                          label: 'Full Name',
+                          prefixIcon: Icons.person_2_outlined,
+                          initialValue: 'John Doe',
+                        ),
+                        SizedBox(height: 16),
+                        CustomTextfield(
+                          label: 'Email',
+                          prefixIcon: Icons.email_outlined,
+                          initialValue: 'john@gmail.com',
+                        ),
+                        SizedBox(height: 16),
+                        CustomTextfield(
+                          label: 'Phone',
+                          prefixIcon: Icons.phone_outlined,
+                          initialValue: '+1 234 567 890',
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16, left: 4),
+                    child: Text(
+                      'About You',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.05),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    padding: const EdgeInsets.all(20),
+                    child: CustomTextfield(
+                      label: 'Bio',
+                      prefixIcon: Icons.info_outline,
+                      initialValue: 'Passionate learner | Tech enthusiast',
+                      maxLines: 3,
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                  CustomButton(
+                    text: 'Save Changes',
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icons.check_circle_outline,
                   ),
                 ],
               ),
