@@ -28,7 +28,7 @@ class SettingScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [SettingSection(title: 'App Preferences', children: [
-              SettingTile(),
+              // SettingTile(),
             ])],
           ),
         ),
